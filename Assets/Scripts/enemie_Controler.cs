@@ -9,11 +9,14 @@ public class enemie_Controler : MonoBehaviour
 
     public Transform target;
     public NavMeshAgent agent;
+    Animator animator;
 
     void Start()
     {
         target = Player_Manager.instance.Player.transform;
         //agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     
@@ -25,7 +28,21 @@ public class enemie_Controler : MonoBehaviour
         {
             agent.SetDestination(target.position);
             Debug.Log(target.position);
+            animator.SetBool("Chase",true);
+            if (distance <= agent.stoppingDistance)
+            {
+                animator.SetBool("Attack",true);
+                Debug.Log("Attack");
+                FaceTarget();
+            }
+
         }
+    }
+    void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     private void OnDrawGizmosSelected()
