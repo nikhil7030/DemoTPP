@@ -41,7 +41,7 @@ public class InputController : IInputActionCollection
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard and Mouse"",
+                    ""groups"": """",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -50,7 +50,7 @@ public class InputController : IInputActionCollection
                     ""name"": """",
                     ""id"": ""686ea17d-9527-4f9f-9801-c69b677d71e3"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": "";Keyboard and Mouse"",
                     ""action"": ""Attack2"",
